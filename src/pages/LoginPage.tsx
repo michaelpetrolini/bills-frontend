@@ -12,6 +12,7 @@ export default function LoginPage() {
       const response = await axiosClient.post('/auth/google', { idToken });
       const { token } = response.data;
       setJwtToken(token);
+      localStorage.setItem('jwtToken', token);
       setError(null);
     } catch (err) {
       console.error(err);
